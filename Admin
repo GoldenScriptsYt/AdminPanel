@@ -1,1 +1,262 @@
-game.Players.LocalPlayer.PlayerGui.AdminGui.Enabled=true
+local syn = getgenv().syn
+getgenv().syn = false
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+
+local Window = OrionLib:MakeWindow({Name = "GoldenScript", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+
+--[[
+Name = <string> - The name of the UI.
+HidePremium = <bool> - Whether or not the user details shows Premium status or not.
+SaveConfig = <bool> - Toggles the config saving in the UI.
+ConfigFolder = <string> - The name of the folder where the configs are saved.
+IntroEnabled = <bool> - Whether or not to show the intro animation.
+IntroText = <string> - Text to show in the intro animation.
+IntroIcon = <string> - URL to the image you want to use in the intro animation.
+Icon = <string> - URL to the image you want displayed on the window.
+CloseCallback = <function> - Function to execute when the window is closed.
+]]
+
+local Tab = Window:MakeTab({
+	Name = "Main",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+--[[
+Name = <string> - The name of the tab.
+Icon = <string> - The icon of the tab.
+PremiumOnly = <bool> - Makes the tab accessible to Sirus Premium users only.
+]]
+
+local Section = Tab:AddSection({
+	Name = "Gon"
+})
+
+--[[
+Name = <string> - The name of the section.
+]]
+
+OrionLib:MakeNotification({
+	Name = "Made By Zen",
+	Content = "Ty For Using",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+
+--[[
+Title = <string> - The title of the notification.
+Content = <string> - The content of the notification.
+Image = <string> - The icon of the notification.
+Time = <number> - The duration of the notification.
+]]
+
+Tab:AddButton({
+	Name = "Use Awaken",
+	Callback = function()
+      		local args = {
+    [1] = "Awaken"
+}
+
+game:GetService("ReplicatedStorage").Remotes.Gon:FireServer(unpack(args))
+  	end    
+})
+
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
+
+Tab:AddButton({
+	Name = "Use Paper",
+	Callback = function()
+      		local args = {
+    [1] = "Paper"
+}
+
+game:GetService("ReplicatedStorage").Remotes.Gon:FireServer(unpack(args))
+  	end    
+})
+
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
+
+Tab:AddButton({
+	Name = "Use Rock",
+	Callback = function()
+      		local args = {
+    [1] = "Rock"
+}
+
+game:GetService("ReplicatedStorage").Remotes.Gon:FireServer(unpack(args))
+  	end    
+})
+
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
+
+Tab:AddButton({
+	Name = "Use Scissor",
+	Callback = function()
+      		local args = {
+    [1] = "Scissor"
+}
+
+game:GetService("ReplicatedStorage").Remotes.Gon:FireServer(unpack(args))
+  	end    
+})
+
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
+
+local Section = Tab:AddSection({
+	Name = "Gojo"
+})
+
+--[[
+Name = <string> - The name of the section.
+]]
+
+Tab:AddButton({
+	Name = "Use Hollow Purple (Big)",
+	Callback = function()
+      		local args = {
+    [1] = "HollowPurpleBig"
+}
+
+game:GetService("ReplicatedStorage").Remotes.Gojo:FireServer(unpack(args))
+  	end    
+})
+
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
+
+Tab:AddButton({
+	Name = "Use Hollow Purple",
+	Callback = function()
+      		local args = {
+    [1] = "HollowPurple"
+}
+
+game:GetService("ReplicatedStorage").Remotes.Gojo:FireServer(unpack(args))
+  	end    
+})
+
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
+
+Tab:AddButton({
+	Name = "Use Imaginary Purple",
+	Callback = function()
+      		local args = {
+    [1] = "ImaginaryPurple"
+}
+
+game:GetService("ReplicatedStorage").Remotes.Gojo:FireServer(unpack(args))
+  	end    
+})
+
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
+
+local Section = Tab:AddSection({
+	Name = "Some Op Feature"
+})
+
+--[[
+Name = <string> - The name of the section.
+]]
+
+Tab:AddToggle({
+	Name = "No Cooldown",
+	Default = false,
+	Callback = function(Value)
+		game:GetService("Players").LocalPlayer.NoCD.Value = Value
+	end    
+})
+
+--[[
+Name = <string> - The name of the toggle.
+Default = <bool> - The default value of the toggle.
+Callback = <function> - The function of the toggle.
+]]
+
+Tab:AddToggle({
+	Name = "Free Early Access",
+	Default = false,
+	Callback = function(Early)
+		game:GetService("Players").LocalPlayer.EarlyAccess.Value = Early
+	end    
+})
+
+--[[
+Name = <string> - The name of the toggle.
+Default = <bool> - The default value of the toggle.
+Callback = <function> - The function of the toggle.
+]]
+
+Tab:AddToggle({
+	Name = "No Dash Cooldown",
+	Default = false,
+	Callback = function(LL)
+		game:GetService("Players").LocalPlayer.NoDashCD.Value = LL
+	end    
+})
+
+--[[
+Name = <string> - The name of the toggle.
+Default = <bool> - The default value of the toggle.
+Callback = <function> - The function of the toggle.
+]]
+
+Tab:AddToggle({
+	Name = "No Stun",
+	Default = false,
+	Callback = function(NoStun)
+		game:GetService("Players").LocalPlayer.NoStun.Value = NoStun
+	end    
+})
+
+--[[
+Name = <string> - The name of the toggle.
+Default = <bool> - The default value of the toggle.
+Callback = <function> - The function of the toggle.
+]]
+
+Tab:AddTextbox({
+	Name = "Use Ultimate",
+	Default = "Type Character Name",
+	TextDisappear = true,
+	Callback = function(Value)
+		local args = {
+			[1] = "Awaken",
+			[2] = Value
+		}
+
+		local remote = game:GetService("ReplicatedStorage"):FindFirstChild("Remotes"):FindFirstChild("Value")
+		if remote then
+			remote:FireServer(unpack(args))
+		end
+	end	  
+})
+
+--[[
+Name = <string> - The name of the textbox.
+Default = <string> - The default value of the textbox.
+TextDisappear = <bool> - Makes the text disappear in the textbox after losing focus.
+Callback = <function> - The function of the textbox.
+]]
+
+getgenv().syn = syn
+
